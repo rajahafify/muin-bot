@@ -35,6 +35,26 @@ class MessengerBotController < ApplicationController
 
   def actions
     {
+      credit_card_query: -> (session_id, context) {
+        @reply = {
+          "attachment": {
+            "type": "template",
+            "payload": {
+              "template_type": "generic",
+              "elements": [{
+                "title": "RHB WORLD MASTERCARD CREDIT CARD",
+                "subtitle": "Enjoy up to 6% Cash Back whenever you travel, fill petrol and dine. Enjoy the World wherever you are, local or overseas, it will be rewarding.",
+                "image_url": "http://www.rhbgroup.com/~/media/images/malaysia/product-and-services/personal/cards/credit-cards/rhb-world-mastercard/card-1.ashx?h=126&la=en&w=200",
+                "buttons": [{
+                  "type": "web_url",
+                  "url": "http://www.rhbgroup.com/products-and-services/personal/cards/credit-cards/rhb-world-mastercard",
+                  "title": "Web url"
+                }]
+              }]
+            }
+          }
+        }
+      },
       :user_summary => -> (session_id, context){
         @reply = {
           "attachment": {
