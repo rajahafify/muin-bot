@@ -73,7 +73,7 @@ class MessengerBotController < ApplicationController
               "template_type": "generic",
               "elements": [{
                 "title": "#{stock.company["organizationName"]}, #{stock.company["primaryTicker"]}",
-                "subtitle": "Ask: #{stock_quote.ask}, Change: #{stock_quote.change}(#{stock_quote.change_percent_change}",
+                "subtitle": "Ask: #{stock_quote.ask}, Change: #{stock_quote.change}(#{stock_quote.changein_percent})",
                 "buttons": [{
                   "type": "web_url",
                   "url": stock.company["hasURL"],
