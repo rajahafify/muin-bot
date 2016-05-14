@@ -14,9 +14,9 @@ class MessengerBotController < ApplicationController
 
   def postback(event, sender)
     payload = event["postback"]["payload"]
-    puts "================================================"
+    logger.debug "================================================"
     puts payload
-    puts "================================================"
+    logger.debug "================================================"
     payloads = payload.split(',')
     case payloads[0]
     when 'buy'
