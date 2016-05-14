@@ -1,7 +1,7 @@
 require 'wit'
 
 class MessengerBotController < ApplicationController
-  before_action :set_wit, :set_user
+  before_action :set_wit
   def message(event, sender)
     user = User.find_or_create_by(facebook_uuid: event["sender"]["id"])
     sender.get_profile
