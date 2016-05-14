@@ -3,7 +3,7 @@ require 'wit'
 class MessengerBotController < ApplicationController
   before_action :set_wit
   def message(event, sender)
-    user = User.find_or_create_by(facebook_uuid: event["sender"]["id"])
+    @user = User.find_or_create_by(facebook_uuid: event["sender"]["id"])
     sender.get_profile[:body].each do |key, value|
       next if key == 'timezone'
       user.update_attribute(key, value)
@@ -35,6 +35,21 @@ class MessengerBotController < ApplicationController
 
   def actions
     {
+      :user_summary => -> (session_id, context){
+        @reply = {
+          "attachment": {
+            "type": "template",
+            "payload": {
+              "template_type": "generic",
+              "elements": [{
+                "title": "#{@user.first_name} #{@user.last_name}",
+                "subtitle": @user.gender,
+                "image_url": @user.profile_pic
+              }]
+            }
+          }
+        }
+      },
       :say => -> (session_id, context, msg) {
         @reply = { text: msg }
       },
