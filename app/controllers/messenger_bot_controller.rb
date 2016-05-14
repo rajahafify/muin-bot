@@ -5,6 +5,7 @@ class MessengerBotController < ApplicationController
   def message(event, sender)
     user = User.find_or_create_by(facebook_uuid: event["sender"]["id"])
     sender.get_profile[:body].each do |key, value|
+      next if key == 'timezone'
       user.update_attribute(key, value)
     end
     user.save
