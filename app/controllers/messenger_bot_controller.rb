@@ -1,11 +1,11 @@
 require 'wit'
 
 class MessengerBotController < ApplicationController
+  before_action :set_wit, :set_user
   def message(event, sender)
-    wit = Wit.new access_token, actions
     sender_id = event["sender"]["id"]
     text = event["message"]["text"]
-    wit.run_actions sender_id, text
+    @wit.run_actions sender_id, text
     sender.reply(@reply)
   end
 
@@ -14,17 +14,18 @@ class MessengerBotController < ApplicationController
 
   def postback(event, sender)
     payload = event["postback"]["payload"]
-    logger.debug "================================================"
-    puts payload
-    logger.debug "================================================"
     payloads = payload.split(',')
     case payloads[0]
     when 'buy'
-      sender.reply("How much?");
+      sender.reply(text: "How much?");
     end
   end
 
   private
+
+  def set_wit
+    @wit = Wit.new access_token, actions
+  end
 
   def actions
     {
@@ -55,10 +56,6 @@ class MessengerBotController < ApplicationController
                   "type": "web_url",
                   "url": stock.company["hasURL"],
                   "title": "Web url"
-                }, {
-                  "type": "postback",
-                  "title": "Buy Stock",
-                  "payload": "buy,#{stock.company["primaryTicker"]}",
                 }]
               }]
             }
