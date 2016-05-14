@@ -1,0 +1,2 @@
+module MessengerBotHelper
+end
