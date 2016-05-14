@@ -65,14 +65,15 @@ class MessengerBotController < ApplicationController
       :stock_query => -> (session_id, context){
         stock = Stock.new(context)
         stock.query
+        stock_quote = StockQuote::Stock.quote(stock.company["primaryTicker"])
         @reply = {
           "attachment": {
             "type": "template",
             "payload": {
               "template_type": "generic",
               "elements": [{
-                "title": stock.company["organizationName"],
-                "subtitle": stock.company["primaryTicker"],
+                "title": "#{stock.company["organizationName"]}, #{stock.company["primaryTicker"]}",
+                "subtitle": "Ask: #{stock_quote.ask}, Change: #{stock_quote.change}(#{stock_quote.change_percent_change}",
                 "buttons": [{
                   "type": "web_url",
                   "url": stock.company["hasURL"],
