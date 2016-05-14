@@ -37,26 +37,24 @@ class MessengerBotController < ApplicationController
         p error.message
       },
       :stock_query => -> (session_id, context){
-        s = Stock.new(context)
-        s.query
-        p s.company
+        stock = Stock.new(context)
+        stock.query
         @reply = {
           "attachment": {
             "type": "template",
             "payload": {
               "template_type": "generic",
               "elements": [{
-                "title": "Company name",
-                "subtitle": "Element #1 of an hscroll",
-                "image_url": "http://messengerdemo.parseapp.com/img/rift.png",
+                "title": stock.company["organizationName"],
+                "subtitle": stock.company["primaryTicker"],
                 "buttons": [{
                   "type": "web_url",
-                  "url": "https://www.messenger.com/",
+                  "url": stock.company["hasURL"],
                   "title": "Web url"
                 }, {
                   "type": "postback",
-                  "title": "Postback",
-                  "payload": "Payload for first element in a generic bubble",
+                  "title": "Buy Stock",
+                  "payload": "buy,#{stock.company["primaryTicker"]}",
                 }]
               }]
             }
