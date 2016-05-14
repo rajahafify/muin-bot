@@ -4,7 +4,7 @@ class MessengerBotController < ApplicationController
   before_action :set_wit
   def message(event, sender)
     user = User.find_or_create_by(facebook_uuid: event["sender"]["id"])
-    sender.get_profile["body"].each do |key, value|
+    sender.get_profile[:body].each do |key, value|
       user.update_attribute(key, value)
     end
     user.save
