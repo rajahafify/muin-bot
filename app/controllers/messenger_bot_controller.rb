@@ -41,16 +41,27 @@ class MessengerBotController < ApplicationController
             "type": "template",
             "payload": {
               "template_type": "generic",
-              "elements": [{
-                "title": "RHB WORLD MASTERCARD CREDIT CARD",
-                "subtitle": "Enjoy up to 6% Cash Back whenever you travel, fill petrol and dine. Enjoy the World wherever you are, local or overseas, it will be rewarding.",
-                "image_url": "http://www.rhbgroup.com/~/media/images/malaysia/product-and-services/personal/cards/credit-cards/rhb-world-mastercard/card-1.ashx?h=126&la=en&w=200",
-                "buttons": [{
-                  "type": "web_url",
-                  "url": "http://www.rhbgroup.com/products-and-services/personal/cards/credit-cards/rhb-world-mastercard",
-                  "title": "Web url"
-                }]
-              }]
+              "elements": [
+                {
+                  "title": "RHB WORLD MASTERCARD CREDIT CARD",
+                  "subtitle": "Enjoy up to 6% Cash Back whenever you travel, fill petrol and dine. Enjoy the World wherever you are, local or overseas, it will be rewarding.",
+                  "image_url": "http://www.rhbgroup.com/~/media/images/malaysia/product-and-services/personal/cards/credit-cards/rhb-world-mastercard/card-1.ashx?h=126&la=en&w=200",
+                  "buttons": [{
+                    "type": "web_url",
+                    "url": "http://www.rhbgroup.com/products-and-services/personal/cards/credit-cards/rhb-world-mastercard",
+                    "title": "Web url"
+                  }]
+                }, {
+                  "title": "RHB VISA INFINITE CREDIT CARD",
+                  "subtitle": "Earn 5X Reward Points when you spend overseas, enjoy complimentary green fee on golfing and experience travel comfort reserved only for the elite. Discover a world of Infinite possibilities unlike any other.",
+                  "image_url": "http://www.rhbgroup.com/~/media/images/malaysia/product-and-services/personal/cards/credit-cards/infinite-credit-card/card-1.ashx?h=126&la=en&w=200",
+                  "buttons": [{
+                    "type": "web_url",
+                    "url": "http://www.rhbgroup.com/products-and-services/personal/cards/credit-cards/rhb-visa-infinite-credit-card",
+                    "title": "Web url"
+                  }]
+                }
+              ]
             }
           }
         }
