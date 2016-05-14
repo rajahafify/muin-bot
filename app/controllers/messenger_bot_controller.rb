@@ -14,9 +14,10 @@ class MessengerBotController < ApplicationController
 
   def postback(event, sender)
     payload = event["postback"]["payload"]
-    case payload
-    when :something
-      #ex) process sender.reply({text: "button click event!"})
+    payloads = payload.split(',')
+    case payloads[0]
+    when 'buy'
+      sender.reply("How much?");
     end
   end
 
