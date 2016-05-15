@@ -60,6 +60,24 @@ class MessengerBotController < ApplicationController
                     "url": "http://www.rhbgroup.com/products-and-services/personal/cards/credit-cards/rhb-visa-infinite-credit-card",
                     "title": "Web url"
                   }]
+                }, {
+                  "title": "Maybankard Manchester United Visa Card",
+                  "subtitle": "Own the Card of Champions!",
+                  "image_url": "http://www.maybank2u.com.my/WebBank/manU_tn.png",
+                  "buttons": [{
+                    "type": "web_url",
+                    "url": "http://www.maybank2u.com.my/mbb_info/m2u/public/personalDetail04.do?channelId=&programId=CRD01-CreditCards&chCatId=/mbb/Personal/CRD-Cards&cntTypeId=0&cntKey=537003127",
+                    "title": "Web url"
+                  }]
+                }, {
+                  "title": "Maybank 2 Gold Card",
+                  "subtitle": "2 is all you need",
+                  "image_url": "http://www.maybank2u.com.my/WebBank/dualGold_tn.png",
+                  "buttons": [{
+                    "type": "web_url",
+                    "url": "http://www.maybank2u.com.my/mbb_info/m2u/public/personalDetail04.do?channelId=&programId=CRD01-CreditCards&chCatId=/mbb/Personal/CRD-Cards&cntTypeId=0&cntKey=190064",
+                    "title": "Web url"
+                  }]
                 }
               ]
             }
